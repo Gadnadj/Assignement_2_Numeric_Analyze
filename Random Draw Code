@@ -1,0 +1,9 @@
+import random
+
+Gad = "337744155"
+
+Questions=["Question - 19","Question - 20", "Question - 21" ,"Question - 22", "Question - 23", "Question - 24", "Question - 25", "Question - 26", "Question - 27", "Question - 28", "Question - 29", "Question - 30"]
+
+x = random.randint(0, 9)
+result = int(Gad[x])
+print(result, "-" , Questions[result])
