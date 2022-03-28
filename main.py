@@ -59,8 +59,8 @@ def elementaryMatrixUnique(n, index1, index2, number):
 
 
 def funcPrint(A):
-    print(math.isclose('\n'.join([''.join(['{:4}'.format(item) for item in row])
-                                  for row in A]), 1, abs_tol=0.1))
+    print('\n'.join([''.join(['{:4}'.format(item) for item in row])
+                                  for row in A]))
 
 
 def Multiple(k, A):
@@ -71,6 +71,10 @@ def Multiple(k, A):
         for j in range(len(A[0])):
             result[i][j] = A[i][j] * k
     return result
+
+
+
+
 
 
 def Multiplication(M1, M2):
@@ -85,6 +89,8 @@ def Multiplication(M1, M2):
         for j in range(size4):
             for k in range(size2):
                 result[i][j] += M1[i][k] * M2[k][j]
+
+
     return result
 
 
@@ -116,10 +122,9 @@ def InverseMatrice(A, B):
                 if i == 0:
                     if counter1 == 1:
                         elementary = elementaryMatrixUnique(trueelementary, counter1 + 1, counter2, 1)
-                        bMatrix = changeResult(B, counter1 + 1, counter2)
+                        #bMatrix = changeResult(B, counter1 + 1, counter2)
                         lst2.append(elementary)
                         print("Elementary : {}".format(counter))
-                        counter += 1
                         funcprintt(elementary)
                         print("\n")
                         print("Matrix A :")
@@ -134,10 +139,10 @@ def InverseMatrice(A, B):
                         print("\n")
                     else:
                         elementary = elementaryMatrixUnique(trueelementary, counter1, counter2, 1)
-                        bMatrix = changeResult(B, counter1, counter2)
+                        #bMatrix = changeResult(B, counter1, counter2)
                         lst2.append(elementary)
                         print("Elementary : {}".format(counter))
-                        counter += 1
+
                         funcprintt(elementary)
                         print("\n")
                         print("Matrix A :")
@@ -145,6 +150,7 @@ def InverseMatrice(A, B):
                         print("\n")
                         trueelementary = Multiplication(elementary, trueelementary)
                         print("Elementary {} multiply by the Matrix X : ".format(counter))
+                        counter += 1
                         funcprintt(trueelementary)
                         print("\n")
                         print(
@@ -152,10 +158,9 @@ def InverseMatrice(A, B):
                         print("\n")
                 else:
                     elementary = elementaryMatrixUnique(trueelementary, counter1, counter2, 1)
-                    bMatrix = changeResult(B, counter1, counter2)
+                    #bMatrix = changeResult(B, counter1, counter2)
                     lst2.append(elementary)
                     print("Elementary : {}".format(counter))
-                    counter += 1
                     funcprintt(elementary)
                     print("\n")
                     print("Matrix A :")
@@ -163,6 +168,7 @@ def InverseMatrice(A, B):
                     print("\n")
                     trueelementary = Multiplication(elementary, trueelementary)
                     print("Elementary {} multiply by the Matrix X : ".format(counter))
+                    counter += 1
                     funcprintt(trueelementary)
                     print("\n")
                     print("==========================================================================================")
@@ -175,7 +181,6 @@ def InverseMatrice(A, B):
                     1) and i < len(trueelementary):
                 b = 1 / trueelementary[i][i]
                 elementary = elementarMatrix(len(trueelementary), i, i, b)
-                counter += 1
                 print("Elementary : {}".format(counter))
                 funcprintt(elementary)
                 print("\n")
@@ -184,6 +189,7 @@ def InverseMatrice(A, B):
                 print("\n")
                 trueelementary = Multiplication(elementary, trueelementary)
                 print("Elementary {} multiply by the Matrix X : ".format(counter))
+                counter += 1
                 funcprintt(trueelementary)
                 print("\n")
                 print("==========================================================================================")
@@ -195,7 +201,6 @@ def InverseMatrice(A, B):
                         0) and j > i:
                     d = (trueelementary[j][i] / trueelementary[i][i]) * -1
                     elementary = elementarMatrix(len(trueelementary), j, i, d)
-                    counter += 1
                     print("Elementary : {}".format(counter))
                     funcprintt(elementary)
                     print("\n")
@@ -204,6 +209,7 @@ def InverseMatrice(A, B):
                     print("\n")
                     trueelementary = Multiplication(elementary, trueelementary)
                     print("Elementary {} multiply by the Matrix X : ".format(counter))
+                    counter += 1
                     funcprintt(trueelementary)
                     print("\n")
                     print("==========================================================================================")
@@ -217,7 +223,6 @@ def InverseMatrice(A, B):
                     j] != int(1) and trueelementary[i][j] != float(1.0) and trueelementary[i][j] and i != j:
                     d = (trueelementary[i][j] / trueelementary[i][i]) * -1
                     elementary = elementarMatrix(len(trueelementary), i, j, d)
-                    counter += 1
                     print("Elementary : {}".format(counter))
                     funcprintt(elementary)
                     print("\n")
@@ -226,6 +231,7 @@ def InverseMatrice(A, B):
                     print("\n")
                     trueelementary = Multiplication(elementary, trueelementary)
                     print("Elementary {} multiply by the Matrix X : ".format(counter))
+                    counter += 1
                     funcprintt(trueelementary)
                     print("\n")
                     print("==========================================================================================")
@@ -267,7 +273,7 @@ def getMatrixDeternminant(m):
     return determinant
 
 
-A = [[2, 2, 3], [4, -5, 6], [7, 8, 8]]
-B = [[2], [5], [4]]
+A = [[0.04, 0.01, -0.01], [0.2, 0.5, -0.2], [1, 2, 4]]
+B = [[0.06], [0.3], [11]]
 
 InverseMatrice(A, B)
